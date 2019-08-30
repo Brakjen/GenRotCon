@@ -1,6 +1,7 @@
 import math
 import numpy as np
 import chempy
+from pyquaternion import Quaternion
 
 
 def load_xyz(filename):
@@ -64,19 +65,47 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
     :param axis: float: rotate around the given vector
     :return: tuple: rotated x, y, z coordinates
     """
+    # Some shorthands
+    gamma = math.cos(angle/2)
+    theta = math.sin(angle/2)
+    x = axis[0]  # Axis of rotation, x element
+    y = axis[1]  # Axis of rotation, y element
+    z = axis[2]  # Axis of rotation, z element
+
     # Define the quaternion
-    q = (math.cos(angle/2), axis[0]*math.sin(angle/2), axis[1]*math.sin(angle/2), axis[2]*math.sin(angle/2))
+    q = (gamma, axis[0]*theta, axis[1]*theta, axis[2]*theta)
 
     # Construct quaternion representations for atomic coordinates
-    [atom.insert(0, 0.0) for atom in coordinates]
+    #[atom.insert(0, 0.0) for atom in coordinates]
 
+    # Test vector
+    coords_rot = []
+    for i, atom in enumerate(coordinates):
+        px = atom[0]  # x element of vector to rotate
+        py = atom[1]  # y element of vector to rotate
+        pz = atom[2]  # z element of vector to rotate
 
-    return coordinates
+        # q p q*
+        px_rot = px*theta**2 * (x**2 - y**2 - z**2) + 2*x*theta**2 * (y*py + z*pz) + 2*gamma*theta * (y*pz -z*py)
+
+        py_rot = py*theta**2 * (y**2 - z**2 - x**2) + 2*y*theta**2 * (x*px + z*pz) + 2*gamma*theta * (z*px - x*pz)
+
+        pz_rot = pz*theta**2 * (z**2 - y**2 - x**2) + 2*z*theta**2 * (x*px + y*py) + 2*gamma*theta * (x*py - y*px)
+
+        coords_rot.append([px_rot, py_rot, pz_rot])
+
+    return coords_rot
 
 
 atoms, coords = load_xyz("test.xyz")
 com = center_of_mass(atoms, coords)
 coords_centered = center_molecule(coords, com)
 
-print(quaternion_rotation(coordinates=coords_centered))
+# Now rotate by 90 degrees around the x axis
+coords_rotated = quaternion_rotation(coordinates=coords_centered)
 
+with open("test_rot.xyz", "w") as f:
+    f.write(f"{len(coords_rotated)}\n")
+    f.write("\n")
+    for atom, coord in zip(atoms, coords_rotated):
+        f.write(f"{atom} {' '.join(list(map(str, coord)))}\n")
