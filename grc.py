@@ -82,13 +82,22 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
 
 help = ["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
 msg = """
-This script generates 27 rotated conformers of the given molecule, 9 in each of the three dimensions.
+This script generates rotated conformers of the given molecule in each of the three dimensions.
 It assumes the coordinates are given in a standard XYZ file.
 
 Because the grid's rotational variance is periodic every 90 degrees, we limit the rotations to 90 degrees.
 See Wheeler et al (2019, ChemRxiv) for more information: https://doi.org/10.26434/chemrxiv.8864204.v5
 
 You can change the number of conformers to generate by editing the variable "INCREMEMENT" this script.
+
+Run this script as follows:
+$ python3 grc.py <coordinates.xyz>
+
+For this help message, run
+$ python3 grc.py <arg>
+
+where <arg> is one of
+["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
 """
 
 if sys.argv[1] in help:
