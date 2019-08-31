@@ -6,7 +6,7 @@ import sys
 def load_xyz(filename):
     """
     Load the xyz file.
-    :param filename: str: path to file
+    :param filename: str: path to the tile
     :return: tuple: ([atomic_labels], [coordinates])
     """
     with open(filename) as f:
@@ -27,9 +27,9 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
     Then translate molecule such that the center of mass is in the origin.
     Finally perform the quaternion rotation by "angle" radians around "axis".
 
-    :param angle: float: by how many radians should the molecue be rotated
-    :param axis: float: rotate around the given vector
-    :return: tuple: rotated x, y, z coordinates
+    :param angle: by how many radians should the molecule be rotated?
+    :param axis: tuple or list: rotate around this (unit!) vector
+    :return: list: rotated x, y, z coordinates of all atoms
     """
     # Compute the center of mass (com)
     com = [0, 0, 0]
@@ -85,13 +85,18 @@ msg = """
 This script generates rotated conformers of the given molecule in each of the three dimensions.
 It assumes the coordinates are given in a standard XYZ file.
 
-Because the grid's rotational variance is periodic every 90 degrees, we limit the rotations to 90 degrees.
+REQUIREMENTS
+Python version required: 3.x
+Required non-standard libraries: chempy (install with "$ pip install chempy"
+
+BACKGROUND INFORMATION
 See Wheeler et al (2019, ChemRxiv) for more information: https://doi.org/10.26434/chemrxiv.8864204.v5
 
-You can change the number of conformers to generate by editing the variable "INCREMEMENT" this script.
-
+USAGE
 Run this script as follows:
 $ python3 grc.py <coordinates.xyz>
+
+You can change the number of conformers to generate by editing the variable "INCREMEMENT" this script.
 
 For this help message, run
 $ python3 grc.py <arg>
@@ -99,6 +104,7 @@ $ python3 grc.py <arg>
 where <arg> is one of
 ["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
 
+AUTHOR INFORMATION
 |==========================================|
 |This script was made by                   |
 |Anders Brakestad                          |
