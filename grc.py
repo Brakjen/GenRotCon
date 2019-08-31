@@ -82,15 +82,18 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
 
 help = ["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
 msg = """
+SUMMARY
 This script generates rotated conformers of the given molecule in each of the three dimensions.
-It assumes the coordinates are given in a standard XYZ file.
 
 REQUIREMENTS
 Python version required: 3.x
 Required non-standard libraries: chempy (install with "$ pip install chempy"
+It assumes the coordinates are given in a standard XYZ file.
 
 BACKGROUND INFORMATION
-See Wheeler et al (2019, ChemRxiv) for more information: https://doi.org/10.26434/chemrxiv.8864204.v5
+See Wheeler et al (2019, ChemRxiv) for more information
+on the integration grid's variance to molecular orientation: 
+https://doi.org/10.26434/chemrxiv.8864204.v5
 
 USAGE
 Run this script as follows:
