@@ -99,7 +99,7 @@ USAGE
 Run this script as follows:
 $ python3 grc.py <coordinates.xyz>
 
-You can change the number of conformers to generate by editing the variable "INCREMEMENT" this script.
+You can change the number of conformers to generate by editing the variable "INCREMEMENT" in this script.
 
 For this help message, run
 $ python3 grc.py <arg>
