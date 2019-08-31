@@ -98,6 +98,14 @@ $ python3 grc.py <arg>
 
 where <arg> is one of
 ["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
+
+|==========================================|
+|This script was made by                   |
+|Anders Brakestad                          |
+|PhD Candidate in Computational Chemistry  |
+|UiT The Arctic University of Tromsø       |
+|anders.m.brakestad@uit.no                 |
+|==========================================|
 """
 
 if sys.argv[1] in help:
