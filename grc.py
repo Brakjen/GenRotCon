@@ -274,7 +274,7 @@ if "-animation" in sys.argv or "--animation" in sys.argv:
     with open("animation.xyz", "w") as f:
         for angle in range(360):
             rad = angle * math.pi / 180
-            rot = quaternion_rotation(angle=rad, axis=[0, 1, 0], coordinates=coords)
+            rot = quaternion_rotation(angle=rad, axis=[0, 0, 1], coordinates=coords)
 
             f.write(f"{len(rot)}\n")
             f.write("\n")
