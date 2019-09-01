@@ -209,7 +209,7 @@ SUMMARY
 This script generates rotated conformers of the given molecule in each of the three dimensions.
 
 REQUIREMENTS
-Python version required: 3.6 or higher
+Python version required: 2.6 or higher
 It assumes the coordinates are given in a standard XYZ file, and that the atomic labels
 in the first column are correctly typed atomic symbols 
 (e.g. "H", not "h" or "1"; "Ca" not "ca" or "CA" or "20")
@@ -221,7 +221,7 @@ https://doi.org/10.26434/chemrxiv.8864204.v5
 
 USAGE
 Run this script as follows:
-$ python3 grc.py <coordinates.xyz>
+$ python grc.py <coordinates.xyz>
 
 You can change the number of conformers to generate by editing the variable "INCREMEMENT" in this script.
 
