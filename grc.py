@@ -252,7 +252,7 @@ dims = {"x": [1, 0, 0],
         "y": [0, 1, 0],
         "z": [0, 0, 1]}
 
-INCREMENT = 1  # This defines the number of rotations to perform in each dimension: n = 90 / INCREMENT
+INCREMENT = 10  # This defines the number of rotations to perform in each dimension: n = 90 / INCREMENT
 assert isinstance(INCREMENT, int), "The increment must be an integer!"
 
 for dim in dims:
