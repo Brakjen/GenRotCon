@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3921d80a-48f9-4724-a850-e30d33827086" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grc.py" beforeDir="false" afterPath="$PROJECT_DIR$/grc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,12 +15,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="212" column="107" selection-start-line="212" selection-start-column="107" selection-end-line="212" selection-end-column="107" />
+            <state relative-caret-position="200">
+              <caret line="254" column="14" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#236#2059#1" />
                 <element signature="e#75#486#0" />
+                <element signature="e#3283#3290#0" />
               </folding>
             </state>
           </provider>
@@ -137,7 +137,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1216" height="777" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15397489" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -179,12 +178,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="212" column="107" selection-start-line="212" selection-start-column="107" selection-end-line="212" selection-end-column="107" />
+        <state relative-caret-position="200">
+          <caret line="254" column="14" selection-start-line="254" selection-start-column="14" selection-end-line="254" selection-end-column="14" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#236#2059#1" />
             <element signature="e#75#486#0" />
+            <element signature="e#3283#3290#0" />
           </folding>
         </state>
       </provider>
