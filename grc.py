@@ -270,7 +270,6 @@ for dim in dims:
 
 print(f"Number of rotational conformers generated: {3 * len(range(INCREMENT, 90, INCREMENT))}")
 
-
 if "-animation" in sys.argv or "--animation" in sys.argv:
     with open("animation.xyz", "w") as f:
         for angle in range(360):
