@@ -1,7 +1,7 @@
 # GenRotCon
 Generate rotational conformers easily for use in testing of integration grids' rotational variance.
 
-Python3 version (3.6 or higher): grc.py <\br>
+Python3 version (3.6 or higher): grc.py <br/>
 Python2 version (2.6 or higher): grc27.py
 
 This script uses quaternions to perform spatial rotations of the submitted molecule.
