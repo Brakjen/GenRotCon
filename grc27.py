@@ -278,7 +278,7 @@ if "-animation" in sys.argv or "--animation" in sys.argv:
             rad = angle * math.pi / 180
             rot = quaternion_rotation(angle=rad, axis=[1, 0, 0], coordinates=coords)
 
-            f.write(f"{len(rot)}\n")
+            f.write("{}\n".format(len(rot)))
             f.write("\n")
             for atom, coord in zip(atoms, rot):
-                f.write(f"{atom} {' '.join(list(map(str, coord)))}\n")
+                f.write("{} {}\n".format(atom, ' '.join(list(map(str, coord)))))
