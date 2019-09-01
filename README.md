@@ -14,7 +14,9 @@ the correct atomic symbol (i.e. "Ca" and not "ca" or "20").
 
 ## Usage
 Run <br/>
+```bash
 $python grc.py <coordinates.xyz> <br/>
+```
 to generate 24 rotational conformers, 8 in each dimension. The default is to rotate in range(10, 90, 10),
 but the increment can be edited manually if desireable.
 
