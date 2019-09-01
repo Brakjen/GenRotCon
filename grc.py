@@ -272,7 +272,7 @@ print(f"Number of rotational conformers generated: {3 * len(range(INCREMENT, 90,
 
 if "-animation" in sys.argv or "--animation" in sys.argv:
     with open("animation.xyz", "w") as f:
-        for angle in range(360):
+        for angle in range(0, 360, 3):
             rad = angle * math.pi / 180
             rot = quaternion_rotation(angle=rad, axis=[0, 0, 1], coordinates=coords)
 
