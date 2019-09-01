@@ -207,9 +207,10 @@ SUMMARY
 This script generates rotated conformers of the given molecule in each of the three dimensions.
 
 REQUIREMENTS
-Python version required: 3.x
-Required non-standard libraries: chempy (install with "$ pip install chempy"
-It assumes the coordinates are given in a standard XYZ file.
+Python version required: 3.6 or higher
+It assumes the coordinates are given in a standard XYZ file, and that the atomic labels
+in the first column are correctly typed atomic symbols 
+(e.g. "H", not "h" or "1"; "Ca" not "ca" or "CA" or "20")
 
 BACKGROUND INFORMATION
 See Wheeler et al (2019, ChemRxiv) for more information
