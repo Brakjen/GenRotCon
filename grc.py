@@ -150,6 +150,7 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
 
     :param angle: by how many radians should the molecule be rotated?
     :param axis: tuple or list: rotate around this (unit!) vector
+    :param coordinates: list: the pre-rotated atomic coordinates
     :return: list: rotated x, y, z coordinates of all atoms
     """
     # Compute the center of mass (com)
