@@ -13,15 +13,15 @@ The coordinates must be given in standard XYZ file format, and the atomic labels
 the correct atomic symbol (i.e. "Ca" and not "ca" or "20").
 
 ## Usage
-Run 
-$python grc.py <coordinates.xyz>
+Run <br/>
+$python grc.py <coordinates.xyz> <br/>
 to generate 24 rotational conformers, 8 in each dimension. The default is to rotate in range(10, 90, 10),
 but the increment can be edited manually if desireable.
 
-For a help message, run
+For a help message, run <br/>
 $ python grc.py --help
 
-To generate an XYZ file (animation.xyz) containing the full rotation in 1 degree increments around the x-axis, run
+To generate an XYZ file (animation.xyz) containing the full rotation in 1 degree increments around the x-axis, run <br/>
 $ python grc.py <coordinates.xyz> --animation
 
 ## Algorithm
