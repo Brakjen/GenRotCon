@@ -256,7 +256,7 @@ INCREMENT = 10  # This defines the number of rotations to perform in each dimens
 assert isinstance(INCREMENT, int), "The increment must be an integer!"
 
 for dim in dims:
-    for angle in range(0, 90, INCREMENT):
+    for angle in range(INCREMENT, 90, INCREMENT):
         rad = angle * math.pi / 180
         coords_rot = quaternion_rotation(angle=rad, coordinates=coords, axis=dims[dim])
 
@@ -267,4 +267,4 @@ for dim in dims:
             for atom, coord in zip(atoms, coords_rot):
                 f.write(f"{atom} {' '.join(list(map(str, coord)))}\n")
 
-print(f"Number of rotational conformers generated: {3 * len(range(0, 90, INCREMENT))}")
+print(f"Number of rotational conformers generated: {3 * len(range(INCREMENT, 90, INCREMENT))}")
