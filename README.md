@@ -3,11 +3,11 @@ Generate rotational conformers easily for use in testing of integration grids' r
 
 ![](animation.gif)
 
-###USAGE SUMMARY: 
+### USAGE SUMMARY: 
 ```bash
 grc.py [-h] -x <path> [-n] [-s <N>] [-a] [-S <N>] [-A {x,y,z}] [-o <filename>]
 ```
-###DETAILED USAGE
+### DETAILED USAGE
 To generate this help message, run 
 ```bash
 $ python grc.py -h
@@ -35,26 +35,26 @@ or the shorthand version
 $ python grc.py -na -x <molecule.xyz> -S 1 -A x -o coolstuff.xyz
 ```
 
-###REQUIREMENTS PYTHON 3
+### REQUIREMENTS PYTHON 3
 Python version required: 3.6 or higher <br/>
 Libraries needed: argparse version 1.1 <br/>
 It assumes the coordinates are given in a standard XYZ file, and that the atomic labels <br/>
 in the first column are correctly typed atomic symbols <br/>
 (e.g. "H", not "h" or "1"; "Ca", not "ca" or "CA" or "20") 
 
-###REQUIREMENTS PYTHON 2
+### REQUIREMENTS PYTHON 2
 Python version required: 2.6 or higher <br/>
 Libraries needed: argparse version 1.1 <br/>
 It assumes the coordinates are given in a standard XYZ file, and that the atomic labels <br/>
 in the first column are correctly typed atomic symbols <br/>
 (e.g. "H", not "h" or "1"; "Ca", not "ca" or "CA" or "20")
 
-###BACKGROUND INFORMATION
+### BACKGROUND INFORMATION
 See Wheeler et al (2019, ChemRxiv) for more information
 on the integration grid's lack of rotational invariance:
 https://doi.org/10.26434/chemrxiv.8864204.v5
 
-###AUTHOR INFORMATION
+### AUTHOR INFORMATION
 This script was made by <br/>
 Anders Brakestad <br/>
 PhD Candidate in Computational Chemistry <br/>
