@@ -223,7 +223,8 @@ epilog = """
     $ python grc.py --norotation --xyz <molecule.xyz> --animation --animationstep 1 --animationaxis x --outputname coolstuff
     
     REQUIREMENTS
-    Python version required: 3.6 or higher
+    Python version required: 2.6 or higher
+    Libraries needed: argparse version 1.1
     It assumes the coordinates are given in a standard XYZ file, and that the atomic labels
     in the first column are correctly typed atomic symbols
     (e.g. "H", not "h" or "1"; "Ca", not "ca" or "CA" or "20")
