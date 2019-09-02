@@ -1,5 +1,5 @@
 # GenRotCon
-Generate rotational conformers easily for use in testing of integration grids' rotational variance.
+Generate rotational conformers easily for use in testing of integration grids' lack of rotational invariance.
 
 ![](animation.gif)
 
