@@ -286,8 +286,6 @@ if not args.norotation:
     print(f"Number of rotational conformers generated: {n_conformers}")
 
 if args.animation:
-    outputname = args.outputname+".xyz" if args.outputname else f"{args.xyz.split('.')[0]}_animation.xyz"
-
     with open(args.outputname, "w") as f:
         for angle in range(args.animationstep, 360, args.animationstep):
             rad = angle * math.pi / 180
