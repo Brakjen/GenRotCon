@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import math
 import sys
 import argparse
@@ -280,7 +282,8 @@ if not args.norotation:
                 for atom, coord in zip(atoms, coords_rot):
                     f.write(f"{atom} {' '.join(list(map(str, coord)))}\n")
 
-    print(f"Number of rotational conformers generated: {3 * len(range(args.step, 90, args.step))}")
+    n_conformers = 3 * len(range(args.step, 90, args.step))
+    print(f"Number of rotational conformers generated: {n_conformers}")
 
 if args.animation:
     outputname = args.outputname+".xyz" if args.outputname else f"{args.xyz.split('.')[0]}_animation.xyz"
@@ -301,4 +304,5 @@ if args.animation:
             f.write("\n")
             for atom, coord in zip(atoms, rot):
                 f.write(f"{atom} {' '.join(list(map(str, coord)))}\n")
-    print(f"Animation ({len(range(args.animationstep, 360, args.animationstep))} frames) written to {args.outputname}")
+    n_frames = len(range(args.animationstep, 360, args.animationstep))
+    print(f"Animation ({n_frames} frames) written to {args.outputname}")
