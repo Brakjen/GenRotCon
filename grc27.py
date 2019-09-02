@@ -2,6 +2,7 @@
 
 import math
 import sys
+import argparse
 
 # Dict containing all atomic weights of the elements, which will be used to calculate the centers of mass
 # Hard coded to make the script more transferable (i.e. don't need libraries such as chempy or mendeleev)
@@ -204,81 +205,102 @@ def quaternion_rotation(angle=math.pi/2, axis=(1.0, 0.0, 0.0), coordinates=[]):
     return coords_rot
 
 
-help = ["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
-msg = """
-SUMMARY
-This script generates rotated conformers of the given molecule in each of the three dimensions.
+epilog = """
+    USAGE
+    To generate this help message, run 
+    $ python grc.py -h
+    
+    To generate 8 rotational conformers in each dimension, giving
+    a total of 24 conformers, run
+    $ python grc.py --xyz <molecule.xyz> --step 10
+    
+    Note that no rotations above 90 degrees are performed, as the grid's
+    rotational variance is periodic every 90 degrees.
+    
+    To generate an animation XYZ file of 359 structures rotated around
+    the x axis, with output name <coolstuff.xyz>, without generating
+    the rotational conformers, run
+    $ python grc.py --norotation --xyz <molecule.xyz> --animation --animationstep 1 --animationaxis x --outputname coolstuff
+    
+    REQUIREMENTS
+    Python version required: 3.6 or higher
+    It assumes the coordinates are given in a standard XYZ file, and that the atomic labels
+    in the first column are correctly typed atomic symbols
+    (e.g. "H", not "h" or "1"; "Ca", not "ca" or "CA" or "20")
 
-REQUIREMENTS
-Python version required: 2.6 or higher
-It assumes the coordinates are given in a standard XYZ file, and that the atomic labels
-in the first column are correctly typed atomic symbols 
-(e.g. "H", not "h" or "1"; "Ca" not "ca" or "CA" or "20")
+    BACKGROUND INFORMATION
+    See Wheeler et al (2019, ChemRxiv) for more information
+    on the integration grid's lack of rotational invariance:
+    https://doi.org/10.26434/chemrxiv.8864204.v5
 
-BACKGROUND INFORMATION
-See Wheeler et al (2019, ChemRxiv) for more information
-on the integration grid's variance to molecular orientation: 
-https://doi.org/10.26434/chemrxiv.8864204.v5
-
-USAGE
-Run this script as follows:
-$ python grc.py <coordinates.xyz>
-
-You can change the number of conformers to generate by editing the variable "INCREMEMENT" in this script.
-
-For this help message, run
-$ python3 grc.py <arg>
-
-where <arg> is one of
-["--help", "-help", "-h", "-H", "h", "H", "help", "Help", "HELP", "--HELP"]
-
-AUTHOR INFORMATION
-|==========================================|
-|This script was made by                   |
-|Anders Brakestad                          |
-|PhD Candidate in Computational Chemistry  |
-|UiT The Arctic University of Tromsø       |
-|anders.m.brakestad@uit.no                 |
-|==========================================|
-"""
-
-if sys.argv[1] in help:
-    sys.exit(msg)
+    AUTHOR INFORMATION
+    |==========================================|
+    |This script was made by                   |
+    |Anders Brakestad                          |
+    |PhD Candidate in Computational Chemistry  |
+    |UiT The Arctic University of Tromsø       |
+    |anders.m.brakestad@uit.no                 |
+    |==========================================|
+    """
+parser = argparse.ArgumentParser(description="Generate rotational conformers and animations of rotations.",
+                                 epilog=epilog,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument("-x", "--xyz", type=str, required=True, metavar="<path>", help="Path to XYZ file")
+parser.add_argument("-n", "--norotation", action="store_true",
+                    help="Do not generate rotational conformers")
+parser.add_argument("-s", "--step", type=int, default=10, metavar="<N>",
+                    help="Step size in degrees for rotations. Default: 10")
+parser.add_argument("-a", "--animation", action="store_true",
+                    help="Make multiple XYZ file for animation")
+parser.add_argument("-S", "--animationstep", type=int, default=1, metavar="<N>",
+                    help="Step size in degrees for animation. Default. 1")
+parser.add_argument("-A", "--animationaxis", type=str, default="y", choices=["x", "y", "z"],
+                    help="Animate rotations around this axis. Default: y")
+parser.add_argument("-o", "--outputname", type=str, metavar="<filename>", default="animation.xyz",
+                    help="Name of generated animation file with extension. Default: animation.xyz")
+args = parser.parse_args()
 
 # Load XYZ file
-xyzfile = sys.argv[1]
-assert xyzfile.endswith(".xyz"), "The molecular structure must be in an XYZ file: https://en.wikipedia.org/wiki/XYZ_file_format"
-atoms, coords = load_xyz(xyzfile)
+assert args.xyz.endswith(".xyz"), "The molecular structure must be in an XYZ file: https://en.wikipedia.org/wiki/XYZ_file_format"
+atoms, coords = load_xyz(args.xyz)
 
 # Generate rotations in increments around x, y, and z axis
-dims = {"x": [1, 0, 0],
-        "y": [0, 1, 0],
-        "z": [0, 0, 1]}
+if not args.norotation:
+    dims = {"x": [1, 0, 0],
+            "y": [0, 1, 0],
+            "z": [0, 0, 1]}
 
-INCREMENT = 10  # This defines the number of rotations to perform in each dimension: n = 90 / INCREMENT
-assert isinstance(INCREMENT, int), "The increment must be an integer!"
-
-for dim in dims:
-    for angle in range(INCREMENT, 90, INCREMENT):
-        rad = angle * math.pi / 180
-        coords_rot = quaternion_rotation(angle=rad, coordinates=coords, axis=dims[dim])
-
-        outputname = xyzfile.split(".")[0] + "_{}_{}.xyz".format(dim, angle)
-        with open(outputname, "w") as f:
-            f.write("{}\n".format(len(coords_rot)))
-            f.write("Rotated by {} degrees around {} axis\n".format(angle, dim))
-            for atom, coord in zip(atoms, coords_rot):
-                f.write("{} {}\n".format(atom, ' '.join(list(map(str, coord)))))
-
-print("Number of rotational conformers generated: {}".format(3 * len(range(INCREMENT, 90, INCREMENT))))
-
-if "-animation" in sys.argv or "--animation" in sys.argv:
-    with open("animation.xyz", "w") as f:
-        for angle in range(360):
+    for dim in dims:
+        for angle in range(args.step, 90, args.step):
             rad = angle * math.pi / 180
-            rot = quaternion_rotation(angle=rad, axis=[1, 0, 0], coordinates=coords)
+            coords_rot = quaternion_rotation(angle=rad, coordinates=coords, axis=dims[dim])
+
+            outputname = args.xyz.split(".")[0] + "_{}_{}.xyz".format(dim, angle)
+            with open(outputname, "w") as f:
+                f.write("{}\n".format(len(coords_rot)))
+                f.write("Rotated by {} degrees around {} axis\n".format(angle, dim))
+                for atom, coord in zip(atoms, coords_rot):
+                    c = ' '.join(list(map(str, coord)))
+                    f.write("{} {}\n".format(atom, c))
+
+    n_conformers = 3 * len(range(args.step, 90, args.step))
+    print("Number of rotational conformers generated: {}".format(n_conformers))
+
+if args.animation:
+    with open(args.outputname, "w") as f:
+        for angle in range(args.animationstep, 360, args.animationstep):
+            rad = angle * math.pi / 180
+            if args.animationaxis == "x":
+                rot = quaternion_rotation(angle=rad, axis=[1, 0, 0], coordinates=coords)
+            elif args.animationaxis == "y":
+                rot = quaternion_rotation(angle=rad, axis=[0, 1, 0], coordinates=coords)
+            elif args.animationaxis == "z":
+                rot = quaternion_rotation(angle=rad, axis=[0, 0, 1], coordinates=coords)
 
             f.write("{}\n".format(len(rot)))
             f.write("\n")
             for atom, coord in zip(atoms, rot):
-                f.write("{} {}\n".format(atom, ' '.join(list(map(str, coord)))))
+                c = ' '.join(list(map(str, coord)))
+                f.write("{} {}\n".format(atom, c))
+    n_frames = len(range(args.animationstep, 360, args.animationstep))
+    print("Animation ({} frames) written to {}".format(n_frames, args.outputname))
