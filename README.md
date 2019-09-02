@@ -7,6 +7,18 @@ Generate rotational conformers easily for use in testing of integration grids' l
 ```bash
 grc.py [-h] -x <path> [-n] [-s <N>] [-a] [-S <N>] [-A {x,y,z}] [-o <filename>]
 ```
+### ARGUMENT EXPLANATION
+| Shorthand 	| Longhand        	| Help message                                    	| Default     	|   	|
+|-----------	|-----------------	|-------------------------------------------------	|-------------	|---	|
+| -h        	| --help          	| show this help message and exit                 	|             	|   	|
+| -x        	| --xyz           	| Path to XYZ file                                	|             	|   	|
+| -n        	| --norotation    	| Do not generate rotational conformers           	|             	|   	|
+| -s        	| --step          	| Step size in degrees for rotations              	| Default: 10 	|   	|
+| -a        	| --animation     	| Make multiple XYZ file for animation            	|             	|   	|
+| -S        	| --animationstep 	| Step size in degrees for animation              	| Default: 1  	|   	|
+| -A        	| --animationaxis 	| Animate rotations around this axis              	| Default: y  	|   	|
+| -o        	| --outputname    	| Name of generated animation file with extension 	|             	|   	|
+
 ### DETAILED USAGE
 To generate this help message, run 
 ```bash
