@@ -257,7 +257,7 @@ parser.add_argument("-S", "--animationstep", type=int, default=1, metavar="<N>",
 parser.add_argument("-A", "--animationaxis", type=str, default="y", choices=["x", "y", "z"],
                     help="Animate rotations around this axis. Default: y")
 parser.add_argument("-o", "--outputname", type=str, metavar="<filename>", default="animation.xyz",
-                    help="Name of generated animation file without extension. Default: animation.xyz")
+                    help="Name of generated animation file with extension. Default: animation.xyz")
 args = parser.parse_args()
 
 # Load XYZ file
