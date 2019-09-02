@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3921d80a-48f9-4724-a850-e30d33827086" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grc.py" beforeDir="false" afterPath="$PROJECT_DIR$/grc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grc27.py" beforeDir="false" afterPath="$PROJECT_DIR$/grc27.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/test.xyz" afterDir="false" />
     </list>
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="302" column="36" lean-forward="true" selection-start-line="302" selection-start-column="36" selection-end-line="302" selection-end-column="36" />
+            <state relative-caret-position="158">
+              <caret line="259" column="63" selection-start-line="259" selection-start-column="63" selection-end-line="259" selection-end-column="63" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#4233#6838#0" />
@@ -28,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grc27.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="306" column="24" lean-forward="true" selection-start-line="306" selection-start-column="24" selection-end-line="306" selection-end-column="24" />
+            <state relative-caret-position="210">
+              <caret line="259" column="63" selection-start-line="259" selection-start-column="63" selection-end-line="259" selection-end-column="63" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -151,7 +150,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1218" height="777" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25313282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -200,23 +198,23 @@
     <entry file="file://$PROJECT_DIR$/test.xyz">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/grc27.py">
+    <entry file="file://$PROJECT_DIR$/grc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="306" column="24" lean-forward="true" selection-start-line="306" selection-start-column="24" selection-end-line="306" selection-end-column="24" />
+        <state relative-caret-position="158">
+          <caret line="259" column="63" selection-start-line="259" selection-start-column="63" selection-end-line="259" selection-end-column="63" />
           <folding>
-            <element signature="e#16#27#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#4233#6838#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grc.py">
+    <entry file="file://$PROJECT_DIR$/grc27.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="302" column="36" lean-forward="true" selection-start-line="302" selection-start-column="36" selection-end-line="302" selection-end-column="36" />
+        <state relative-caret-position="210">
+          <caret line="259" column="63" selection-start-line="259" selection-start-column="63" selection-end-line="259" selection-end-column="63" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#4233#6838#0" />
+            <element signature="e#16#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
