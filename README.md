@@ -7,7 +7,7 @@ Usage summary:
 ```bash
 grc.py [-h] -x <path> [-n] [-s <N>] [-a] [-S <N>] [-A {x,y,z}] [-o <filename>]
 ```
-##USAGE
+##USAGE <br/>
 To generate this help message, run 
 ```bash
 $ python grc.py -h
