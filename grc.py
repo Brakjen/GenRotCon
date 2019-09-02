@@ -304,6 +304,6 @@ if args.animation:
             f.write("\n")
             for atom, coord in zip(atoms, rot):
                 c = ' '.join(list(map(str, coord)))
-                f.write("{} {}\n".format(atom, c))
+                f.write(f"{atom} {c}\n")
     n_frames = len(range(args.animationstep, 360, args.animationstep))
     print(f"Animation ({n_frames} frames) written to {args.outputname}")
