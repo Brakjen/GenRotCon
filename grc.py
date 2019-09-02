@@ -220,7 +220,7 @@ epilog = """
     To generate an animation XYZ file of 359 structures rotated around
     the x axis, with output name <coolstuff.xyz>, without generating
     the rotational conformers, run
-    $ python grc.py --norotation --xyz <molecule.xyz> --animation --animationstep 1 --animationaxis x --outputname coolstuff
+    $ python grc.py --norotation --xyz <molecule.xyz> --animation --animationstep 1 --animationaxis x --outputname coolstuff.xyz
     
     REQUIREMENTS
     Python version required: 3.6 or higher
