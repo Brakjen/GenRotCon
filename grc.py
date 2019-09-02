@@ -297,8 +297,6 @@ if args.animation:
                 rot = quaternion_rotation(angle=rad, axis=[0, 1, 0], coordinates=coords)
             elif args.animationaxis == "z":
                 rot = quaternion_rotation(angle=rad, axis=[0, 0, 1], coordinates=coords)
-            else:
-                sys.exit("--animationaxis only accepts 'x', 'y', or 'z'")
 
             f.write(f"{len(rot)}\n")
             f.write("\n")
