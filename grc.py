@@ -239,7 +239,7 @@ if __name__ == "__main__":
         |This script was made by                   |
         |Anders Brakestad                          |
         |PhD Candidate in Computational Chemistry  |
-        |UiT The Arctic University of Tromsø       |
+        |UiT The Arctic University of Tromsoe      |
         |anders.m.brakestad@uit.no                 |
         |==========================================|
         """
