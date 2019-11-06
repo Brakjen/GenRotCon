@@ -1,7 +1,6 @@
 # coding=utf-8
 
 import math
-import sys
 import argparse
 
 # Dict containing all atomic weights of the elements, which will be used to calculate the centers of mass
